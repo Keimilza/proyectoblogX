@@ -55,5 +55,6 @@ class User extends Entity{
     public function __construct()
     {
         $this->created_at = new \Datetime('now');
+        $this->updated_at = new \Datetime('now');
     }
 }

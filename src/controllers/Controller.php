@@ -20,5 +20,5 @@ abstract class Controller
         $this->logger->info("Clase ".get_class($this)." cargada");
     }
 
-    public abstract function index(DoctrineManager $doctrine);
+    public abstract function index();
 }
