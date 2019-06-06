@@ -17,7 +17,7 @@ environments:
     development:
         adapter: mysql
         host: localhost
-        name: blogphp
+        name: bdblogphp
         user: kei
         pass: '123456'
         port: 3306
