@@ -1,6 +1,8 @@
 <?php
 
-namespace App\controllers;
+namespace App\controllers\auth;
+use App\controllers\Controller;
+
 use App\DoctrineManager;
 use Kint;
 
@@ -9,7 +11,7 @@ class RegisterController extends Controller
 
     public function index()
     {
-        $this->viewManager->renderTemplate("register.view.html");
+        $this->viewManager->renderTemplate('auth\register.view.html');
         
     }
 

@@ -1,5 +1,6 @@
 <?php
-namespace App\controllers;
+namespace App\controllers\auth;
+use App\controllers\Controller;
 use App\DoctrineManager;
 use App\models\entities\User;
 
@@ -10,7 +11,7 @@ class LoginController extends Controller
     private $error;
     public function index(){
       $this->error = null;
-      $this->viewManager->renderTemplate('login.view.html');
+      $this->viewManager->renderTemplate('\auth\login.view.html');
     }
     
     public function login(DoctrineManager $doctrine){
@@ -23,14 +24,15 @@ class LoginController extends Controller
         if(!$user) 
         {   
            $this->error = "El usuario no existe";
-           $this->viewManager->renderTemplate('login.view.html',['error'=>$this->error]); //aqui se le pasa como parametro a la vista el 'error' y la vista con {% error %} lo entiende
+           return  $this->viewManager->renderTemplate('\auth\login.view.html',['error'=>$this->error]); //aqui se le pasa como parametro a la vista el 'error' y la vista con {% error %} lo entiende
         }
-        Kint::dump($user->password);
+      
         if($user->password !== sha1($password))
         {
            $this->error = "El usuario o password es incorrecto";
-           $this->viewManager->renderTemplate('login.view.html',['error'=>$this->error]);
+           return $this->viewManager->renderTemplate('\auth\login.view.html',['error'=>$this->error]);
         }
+      
         $this->sessionManager->put('user',$user->email); //dentro de la variable de session 'user' se agrega el email
         $this->redirectTo('dashboard');
     }

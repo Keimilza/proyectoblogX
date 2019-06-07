@@ -1,5 +1,7 @@
 <?php
 namespace App\controllers;
+
+
 use App\DoctrineManager;
 
 class WhoController extends Controller

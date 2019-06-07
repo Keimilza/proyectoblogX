@@ -1,6 +1,8 @@
 <?php 
 
-namespace App\controllers;
+namespace App\controllers\auth;
+use App\controllers\Controller;
+
 
 class LogoutController extends Controller
 {

@@ -1,5 +1,6 @@
 <?php
 namespace App\controllers;
+
 //use App\DoctrineManager;
 use App\models\entities\User;
 use Kint;
