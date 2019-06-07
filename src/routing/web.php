@@ -15,7 +15,8 @@ class web
                 $route->addRoute('POST','/register',['App\controllers\RegisterController','register']); //la palabra register es un metodo de ResgiterController, y en este caso es con metodo post porque el formulario envia con un post
                 $route->addRoute('GET','/login',['App\controllers\LoginController','index']);
                 $route->addRoute('POST','/login',['App\controllers\LoginController','login']);
-
+                $route->addRoute('GET','/dashboard',['App\controllers\DashBoardController','index']);
+                $route->addRoute('GET','/logout',['App\controllers\LogoutController','index']);
             }
         );
     }
