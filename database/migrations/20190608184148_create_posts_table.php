@@ -34,7 +34,7 @@ class CreatePostsTable extends AbstractMigration
         $posts = $this->table('posts');
         $posts->addColumn('title','string',['limit'=>100]);
         $posts->addColumn('body','string',['limit'=>256]);
-        $posts->addColumn('id_user','integer');
+        $posts->addColumn('idUser','integer');
         $posts->addColumn('created_at','datetime');
         $posts->addColumn('updated_at','datetime',['null'=>true]);
         $posts->create();

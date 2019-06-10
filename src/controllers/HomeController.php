@@ -16,7 +16,7 @@ class HomeController extends Controller
      // $user =$doctrine->em->getRepository(User::class)->find(2);
      $PostsService = $this->container->get(PostsService::class);
      $posts=$PostsService->getPosts();
-     Kint::dump($posts);
+     //Kint::dump($posts);
      $this->viewManager->renderTemplate('index.view.html',['posts'=>$posts]);
       
      //$this->blogs();

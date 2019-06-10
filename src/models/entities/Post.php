@@ -38,7 +38,7 @@ class Post extends Entity{
 
      */
 
-    public $id_user;
+    public $idUser;
 
     /**
      * @ORM\Column(type="datetime")

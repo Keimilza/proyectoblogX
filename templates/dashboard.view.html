@@ -1,4 +1,28 @@
 {% extends "template-logged.view.html" %}
 {% block body%}
-    <h1>DASHBOARD </h1>
+<h1>DASHBOARD </h1>
+
+    <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">title</th>
+                <th scope="col">body</th>
+                <th scope="col">User</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for post in posts %}
+              <tr>
+                <th scope="row">{{ post.id }}</th>
+                <td>{{ post.title }}</td>
+                <td>{{ post.body|slice(0,80) }}</td>
+                <td>{{ post.idUser}} </td>
+              </tr>
+            {% endfor %}
+              </tbody>
+            </table>
+
+
+
 {%endblock%}
