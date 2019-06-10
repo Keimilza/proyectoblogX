@@ -14,7 +14,9 @@
         "php-di/php-di": "^6.0",
         "robmorgan/phinx": "^0.10.7",
         "fzaninotto/faker": "^1.8",
-        "doctrine/orm": "^2.6"
+        "doctrine/orm": "^2.6",
+        "symfony/validator": "^4.3",
+        "doctrine/annotations": "^1.6"
     },
     "autoload":{
         "psr-4":{

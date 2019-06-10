@@ -33,7 +33,7 @@ class LoginController extends Controller
            return $this->viewManager->renderTemplate('\auth\login.view.html',['error'=>$this->error]);
         }
       
-        $this->sessionManager->put('user',$user->email); //dentro de la variable de session 'user' se agrega el email
+        $this->sessionManager->put('user',$user->id); //dentro de la variable de session 'user' se agrega el id del usuario
         $this->redirectTo('dashboard');
     }
 }
