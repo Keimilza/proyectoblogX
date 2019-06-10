@@ -1,0 +1,16 @@
+{% extends "template-logged.view.html" %}
+{% block body%}
+<h1>Añadir Post</h1>
+    <div class = "container">
+            <div class="wrapper">
+                <form role="form" method="post" name="update-post" class="form-signin">
+                    <h3 class="form-signin-heading">Create Post</h3>
+                    <hr class="colorgraph"><br>
+        
+                    <input type="text" class="form-control" name="title" placeholder="title" required="" autofocus="" value={{post.title}} />
+                    <textarea class="form-control" name="body" placeholder="Body" required="" autofocus="">{{post.body}}</textarea>
+                    <button class="btn btn-lg btn-primary btn-block"  name="Submit" value="edit-post" type="Submit">Create</button>
+                </form>
+            </div>
+        </div>
+{%endblock%}

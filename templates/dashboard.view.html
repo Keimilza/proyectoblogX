@@ -1,7 +1,7 @@
 {% extends "template-logged.view.html" %}
 {% block body%}
 <h1>DASHBOARD </h1>
-
+  <a class="btn btn-primary" href="/create-post">Crear </a>
     <table class="table">
             <thead class="thead-dark">
               <tr>
@@ -9,6 +9,8 @@
                 <th scope="col">title</th>
                 <th scope="col">body</th>
                 <th scope="col">User</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
               </tr>
             </thead>
             <tbody>
@@ -18,11 +20,10 @@
                 <td>{{ post.title }}</td>
                 <td>{{ post.body|slice(0,80) }}</td>
                 <td>{{ post.idUser}} </td>
+                <td><a class="btn btn-success" href="/edit-post/{{post.id}}">editar</td>
+                <td><a class="btn btn-danger" href="/delete-post/{{post.id}}">borrar</td>
               </tr>
             {% endfor %}
               </tbody>
             </table>
-
-
-
 {%endblock%}

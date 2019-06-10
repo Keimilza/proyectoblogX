@@ -8,8 +8,11 @@ use Kint;
 class PostsService
 {   
     private $repository;
+    private $doctrine;
+
     public function __construct(DoctrineManager $doctrine)
     {
+        $this->doctrine = $doctrine;
         $this->repository = $doctrine->em->getRepository(Post::class);;
     }
     public function getPosts()
@@ -19,5 +22,29 @@ class PostsService
     public function getPostsByIdUser(int $id)
     {
         return $this->repository->findByIdUser($id);
+    }
+    public function deletePostUserById(int $idUser, int $idPost)
+    {
+        $post = $this->repository->find($idPost);
+        if(!$post) throw new \Exception ("El post no existe");
+        if($post->idUser !== $idUser) throw new \Exception ('El usuario no tiene permiso');
+        $this->doctrine->em->remove($post);
+        $this->doctrine->em->flush();
+    }
+
+    public function getPostUserById(int $idUser, int $idPost)
+    {
+        $post = $this->repository->find($idPost);
+        if(!$post) throw new \Exception("El usuario no existe");
+        if($post->idUser !== $idUser) throw new \Exception("El usuario");
+        return $post;
+    }
+
+    public function pullPostUserById(int $idUser, Post $post):Post
+    {
+        if($post->idUser !== $idUser) throw new \Exception("El usuario no tiene permiso para modificar");
+        $this->doctrine->em->merge($post); // aqui mergee y crea los cambios, porq ya tiene el id
+        $this->doctrine->em->flush();
+        return $post;
     }
 }
