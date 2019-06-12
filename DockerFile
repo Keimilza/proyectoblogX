@@ -1,0 +1,8 @@
+FROM php:7.1.28
+WORKDIR /app
+COPY composer*.json ./
+RUN composer install
+
+COPY . .
+EXPOSE 5000
+CMD ["composer","start"]

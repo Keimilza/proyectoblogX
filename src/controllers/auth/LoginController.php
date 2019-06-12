@@ -1,17 +1,21 @@
 <?php
 namespace App\controllers\auth;
-use App\controllers\Controller;
+use App\controllers\ControllerAuth;
 use App\DoctrineManager;
 use App\models\entities\User;
 
 use Kint;
 
-class LoginController extends Controller
+class LoginController extends ControllerAuth
 {
     private $error;
+
     public function index(){
+
       $this->error = null;
+      if($this->user) return $this->redirectTo('dashboard');
       $this->viewManager->renderTemplate('\auth\login.view.html');
+    
     }
     
     public function login(DoctrineManager $doctrine){
@@ -33,7 +37,7 @@ class LoginController extends Controller
            return $this->viewManager->renderTemplate('\auth\login.view.html',['error'=>$this->error]);
         }
       
-        $this->sessionManager->put('user',$user->id); //dentro de la variable de session 'user' se agrega el id del usuario
+        $this->sessionManager->put('user',$user); //dentro de la variable de session 'user' se agrega el id del usuario
         $this->redirectTo('dashboard');
     }
 }

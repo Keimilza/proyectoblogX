@@ -1,10 +1,10 @@
 <?php 
 
 namespace App\controllers\auth;
-use App\controllers\Controller;
+use App\controllers\ControllerAuth;
 
 
-class LogoutController extends Controller
+class LogoutController extends ControllerAuth
 {
     public function index()
     {

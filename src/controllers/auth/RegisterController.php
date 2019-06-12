@@ -1,12 +1,12 @@
 <?php
 
 namespace App\controllers\auth;
-use App\controllers\Controller;
+use App\controllers\ControllerAuth;
 
 use App\DoctrineManager;
 use Kint;
 
-class RegisterController extends Controller
+class RegisterController extends ControllerAuth
 {
 
     public function index()

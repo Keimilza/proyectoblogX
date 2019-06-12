@@ -33,11 +33,12 @@ class PostController extends ControllerAuth
         $postService = $this->container->get(PostsService::class);
         try{
           $postService->deletePostUserById($this->user->id,$id);
+          $this->redirectTo('dashboard');  
         }catch(\Exception $e)
         {
             $this->logger->error($e->getMessage());
         }
-          $this->redirectTo('dashboard');
+          
     }
 
     public function edit($id)

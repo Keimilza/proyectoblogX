@@ -9,16 +9,17 @@ use App\models\entities\Post;
 //use App\models\entities\Post;  //creado por mi
 use Kint;
 
-class HomeController extends Controller
+class HomeController extends ControllerAuth
 {
-    private $blogs = [];
+   
     public function index(){
      // $user =$doctrine->em->getRepository(User::class)->find(2);
      $PostsService = $this->container->get(PostsService::class);
      $posts=$PostsService->getPosts();
+    // $user = $this->sessionManager->get('user');
      //Kint::dump($posts);
-     $this->viewManager->renderTemplate('index.view.html',['posts'=>$posts]);
-      
+     $this->viewManager->renderTemplate('index.view.html',['posts'=>$posts,'user'=>(!$this->user)?null:$this->user->email]);
+           
      //$this->blogs();
      // $this->viewManager->renderTemplate('index.view.html',['blogs'=>$this->blogs]);
     }

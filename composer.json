@@ -26,6 +26,10 @@
     "scripts":
     {
         "start": "php -S localhost:5000 -t=public",
-        "kill": "lsof -n -i4TCP:5001 | grep LISTEN | awk '{ print $2 }' | xargs kill" 
+        "kill": "lsof -n -i4TCP:5001 | grep LISTEN | awk '{ print $2 }' | xargs kill"        
+    },
+    "config":
+    {
+        "process-timeout": 0
     }
 }
