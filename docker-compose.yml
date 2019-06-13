@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+      
+        app:
+          image: phpplatform/php-apache-xdebug-composer
+          command: bash -c "cd /app && composer install && composer start"
+          ports:
+            - 5000:5000
+          volumes:
+            -../app:/app

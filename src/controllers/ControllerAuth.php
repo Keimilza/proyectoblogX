@@ -3,6 +3,7 @@ namespace App\controllers;
 use App\ViewManager;
 use App\LogManager;
 use App\SessionManager;
+use App\services\UsersService;
 use DI\Container;
 use Kint;
 

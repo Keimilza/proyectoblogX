@@ -3,6 +3,7 @@
 namespace App;
 use Kint;
 use DI\Container;
+
 class RouterManager
 {
     private $container;
@@ -18,7 +19,8 @@ class RouterManager
             switch($route[0]){
                 case \FastRoute\Dispatcher::NOT_FOUND:
                    header("HTTP/1.0 404 Not Found");
-                   echo "<h1>NOT FOUND </h1>";
+                   $this->container->call(["App\controllers\NotFoundController", "index"], [0]);
+                   break;
                 break;
                 case \FastRoute\Dispatcher::FOUND:
                    $controller = $route[1];  //$route[0] si existe o no la ruta, $route[1] el controlador y el metodo, $route[2] parametros que se le pasen por la uri

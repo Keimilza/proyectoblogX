@@ -1,8 +1,13 @@
-FROM php:7.1.28
+FROM phpplatform/php-apache-xdebug-composer
+
 WORKDIR /app
-COPY composer*.json ./
+
+COPY app/composer.json ./
+
 RUN composer install
 
-COPY . .
+COPY app/ .
+
 EXPOSE 5000
-CMD ["composer","start"]
+
+CMD [ "composer", "start"]
